@@ -1,19 +1,41 @@
 ---
 const response = await fetch('https://api-web.nhle.com/v1/player/8479318/landing')
 const data = await response.json()
+const {teamLogo} = data
 const {goals} = data.featuredStats.regularSeason.subSeason
+const name = `${data.firstName.default} ${data.lastName.default}` 
+const gamesPlayed = data.featuredStats.regularSeason.subSeason.gamesPlayed
+const {heroImage} = data
+const {headshot} = data
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={teamLogo} />
 		<link rel="stylesheet" href="https://use.typekit.net/yke1otl.css">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>34 to 70</title>
 	</head>
 	<body class="bg-[#00205b]">
-		<h1 class="text-2xl text-white">{goals < 70 ? `${70 - goals} Goals until 70` : `${goals} Total Goals`}</h1>
+		<div class=" absolute -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
+			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
+		</div>
+		
+		<div class="flex flex-col min-h-screen items-center justify-center">
+			<div class="mb-8 relative">
+				<div class="rounded-full overflow-hidden bg-white ">
+					<img class="w-32 h-32" title=`${name} headshot` alt="headshot" src={headshot} />
+				</div>
+				<div class="rounded-full right-0 bottom-0 overflow-hidden bg-white border-solid border-2 border-[#00205b] absolute">
+					<img class="w-9 h-9 " title=`TML Logo` alt="logo" src={teamLogo} />
+				</div>
+			</div>
+			<h2 class="text-7xl text-center text-white font-bold">{ goals < 70 ? `${name} is` : `${name} has a total of`}</h2>
+			<h1 class="text-[15rem] text-white font-bold leading-tight">{goals < 70 ? 70 - goals: goals}</h1>
+			<h2 class="text-7xl text-center text-white font-bold">{ goals < 70 ? `goals away from 70 in ${gamesPlayed} games.` : `goals in ${gamesPlayed} games.`}</h2>
+		</div>
+		
 	</body>
 </html>
