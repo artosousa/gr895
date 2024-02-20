@@ -53,7 +53,7 @@ const goalPace = goals + goalsNeeded
 			</h2>
 			<h1 class="text-[15rem] text-white font-bold leading-[0.85] mt-8">{goals < 70 ? 70 - goals: goals}</h1>
 			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">{ goals < 70 ? `Until 70! ` : `goals in ${gamesPlayed} games.`}</h2>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ goals < 70 ? `With only ${fullSeason - gamesPlayed} games left, \nhe is on pace for ${Math.round(goalPace)} goals.` : null}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ goals < 70 ? `With only ${fullSeason - gamesPlayed} games left, he is on pace for about ${Math.round(goalPace)} goals.` : null}</h2>
 			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
 		</div>
 		
