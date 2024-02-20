@@ -25,7 +25,7 @@ const {headshot} = data
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
 		
-		<div class="flex flex-col min-h-screen items-center justify-center">
+		<div class="flex flex-col min-h-[95vh] items-center justify-center">
 			<div class="mb-8 relative">
 				<div class="rounded-full overflow-hidden bg-white ">
 					<img class="w-32 h-32" title=`${name} headshot` alt="headshot" src={headshot} />
@@ -37,6 +37,7 @@ const {headshot} = data
 			<h2 class="text-3xl lg:text-7xl  text-center text-white font-bold">{ goals < 70 ? `${name} is` : `${name} has a total of`}</h2>
 			<h1 class="text-[15rem] text-white font-bold leading-tight">{goals < 70 ? 70 - goals: goals}</h1>
 			<h2 class="text-3xl lg:text-7xl text-center text-white font-bold">{ goals < 70 ? `goals away from 70 in ${gamesPlayed} games.` : `goals in ${gamesPlayed} games.`}</h2>
+			<div class="font-mono text-white absolute bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
 		</div>
 		
 	</body>
