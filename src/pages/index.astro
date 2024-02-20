@@ -20,7 +20,7 @@ const {headshot} = data
 <meta name="description" content="Explore the incredible journey of Austin Matthews during the 2023/2024 season, where his exceptional performance set the hockey world ablaze. Follow along on this site as we countdown to what promises to be an electrifying 70-goal season. Witness the skill, dedication, and passion of a true hockey legend in the making.">
 		<title>34 to 70</title>
 	</head>
-	<body class="bg-[#00205b]">
+	<body class="bg-[#00205b] sm:py-1">
 		<div class=" absolute -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
@@ -34,9 +34,9 @@ const {headshot} = data
 					<img class="w-9 h-9 " title=`TML Logo` alt="logo" src={teamLogo} />
 				</div>
 			</div>
-			<h2 class="text-7xl text-center text-white font-bold">{ goals < 70 ? `${name} is` : `${name} has a total of`}</h2>
+			<h2 class="text-3xl lg:text-7xl  text-center text-white font-bold">{ goals < 70 ? `${name} is` : `${name} has a total of`}</h2>
 			<h1 class="text-[15rem] text-white font-bold leading-tight">{goals < 70 ? 70 - goals: goals}</h1>
-			<h2 class="text-7xl text-center text-white font-bold">{ goals < 70 ? `goals away from 70 in ${gamesPlayed} games.` : `goals in ${gamesPlayed} games.`}</h2>
+			<h2 class="text-3xl lg:text-7xl text-center text-white font-bold">{ goals < 70 ? `goals away from 70 in ${gamesPlayed} games.` : `goals in ${gamesPlayed} games.`}</h2>
 		</div>
 		
 	</body>
