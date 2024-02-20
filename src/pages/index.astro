@@ -32,7 +32,7 @@ const {headshot} = data
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLV4WSCT"
 			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<!-- End Google Tag Manager (noscript) -->
-		<div class=" absolute -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
+		<div class=" fixed -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
 		
@@ -48,7 +48,7 @@ const {headshot} = data
 			<h2 class="text-3xl lg:text-7xl  text-center text-white font-bold">{ goals < 70 ? `${name} is` : `${name} has a total of`}</h2>
 			<h1 class="text-[15rem] text-white font-bold leading-tight">{goals < 70 ? 70 - goals: goals}</h1>
 			<h2 class="text-3xl lg:text-7xl text-center text-white font-bold">{ goals < 70 ? `goals away from 70 in ${gamesPlayed} games.` : `goals in ${gamesPlayed} games.`}</h2>
-			<div class="font-mono text-white absolute bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
+			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
 		</div>
 		
 	</body>
