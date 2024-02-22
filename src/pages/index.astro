@@ -9,6 +9,9 @@ const {heroImage} = data
 const {headshot} = data
 const fullSeason = 81
 const goalPace = Math.round((goals / gamesPlayed) * 81)
+
+import { Image } from "astro:assets";
+import OGImage from "./OGImages.jpg";
 ---
 
 <html lang="en">
@@ -27,7 +30,7 @@ const goalPace = Math.round((goals / gamesPlayed) * 81)
 		<link rel="stylesheet" href="https://use.typekit.net/yke1otl.css">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta property="og:image" content="http://34to70.com/og.png">
+		<meta property="og:image" content="http://34to70.com/OGImages.jpg">
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		<meta property="og:description" content="Explore the incredible journey of Austin Matthews during the 2023/2024 season, where his exceptional performance set the hockey world ablaze. Follow along on this site as we countdown to what promises to be an electrifying 70-goal season. Witness the skill, dedication, and passion of a true hockey legend in the making.">
@@ -38,11 +41,10 @@ const goalPace = Math.round((goals / gamesPlayed) * 81)
 		<title>34 to 70</title>
 	</head>
 	<body class="bg-[#00205b] sm:p-1">
-		
+
 		<div class=" fixed -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
-		
 		<div class="flex flex-col min-h-[95vh] items-center justify-center">
 			<div class="mb-8 relative">
 				<div class="rounded-full overflow-hidden bg-white border-solid border-2 border-white ">
