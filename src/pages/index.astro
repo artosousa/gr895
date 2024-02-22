@@ -9,7 +9,6 @@ const {heroImage} = data
 const {headshot} = data
 const fullSeason = 81
 const goalPace = Math.round((goals / gamesPlayed) * 81)
-import OGImage from "./OG.png";
 ---
 
 <html lang="en">
@@ -28,7 +27,7 @@ import OGImage from "./OG.png";
 		<link rel="stylesheet" href="https://use.typekit.net/yke1otl.css">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta property="og:image" content=`http://34to70.com/${OGImage}`>
+		<meta property="og:image" content=`http://34to70.com/OG.png`>
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		<meta property="og:description" content=`${name} has got ${goals} in ${gamesPlayed}! On pace for ${goalPace} this season!`>
