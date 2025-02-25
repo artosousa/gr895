@@ -44,9 +44,7 @@ const goalsToGo = goalRecord - careerGoals
 const goalAverage = (goals / gamesPlayed)
 const gamesToGo = Math.round((goalsToGo / goalAverage))
 const theGame = futureGames[gamesToGo]
-console.log(
-	theGame.awayTeam.placeName
-)
+
 const gameDate = new Date(theGame.gameDate)
 const formattedDate = gameDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -117,7 +115,7 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 			</p>
 			
 			<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
-				{`${goals} goals this season and is on pace for ${goalPace} goals with ${fullSeason - gamesPlayed} games remaining.`}
+				{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining.`}
 			</p>
 			<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
 				{ `A Career Total of ${goalPace + careerGoals} goals.`}
