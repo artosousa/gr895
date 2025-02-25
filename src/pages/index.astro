@@ -1,14 +1,18 @@
 ---
-const response = await fetch('https://api-web.nhle.com/v1/player/8479318/landing')
+const response = await fetch('https://api-web.nhle.com/v1/player/8471214/landing')
 const data = await response.json()
+console.log(data.featuredStats)
 const {teamLogo} = data
+const careerGoals = data.featuredStats.regularSeason.career.goals
+const goalRecord = 895
 const {goals} = data.featuredStats.regularSeason.subSeason
-const name = `${data.firstName.default} ${data.lastName.default}` 
+const name = `${data.firstName.default} ${data.lastName.default}`
+const careerGamesPlayed = data.featuredStats.regularSeason.career.gamesPlayed
 const {gamesPlayed} = data.featuredStats.regularSeason.subSeason
 const {heroImage} = data
 const {headshot} = data
-const fullSeason = 81
-const goalPace = Math.round((goals / gamesPlayed) * 81)
+const fullSeason = 82
+const goalPace = Math.round((goals / gamesPlayed) * 82)
 ---
 
 <html lang="en">
@@ -30,14 +34,14 @@ const goalPace = Math.round((goals / gamesPlayed) * 81)
 		<meta property="og:image" content=`http://34to70.com/OG.png`>
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
-		<meta property="og:description" content=`${name} has got ${goals} in ${gamesPlayed}! On pace for ${goalPace} this season!`>
-		<meta property="og:title" content=`${name} road to 70. Only ${70 - goals} to go! `>
-		<meta name="description" content=`${name} has got ${goals} in ${gamesPlayed}! On pace for ${goalPace} this season!`>
+		<meta property="og:description" content=`${name} has got ${goalRecord} in ${careerGamesPlayed}! Only ${goalRecord - careerGoals} to go!`>
+		<meta property="og:title" content=`${name} road to ${goalRecord}. Only ${goalRecord - careerGoals} to go! `>
+		<meta name="description" content=`${name} has got ${goalRecord} in ${careerGamesPlayed}! Only ${goalRecord - careerGoals} to go!`>
 		<meta property="og:url" content="https://example.com/page-url">
 		<meta property="og:type" content="website">
-		<title>34 to 70</title>
+		<title>GR895</title>
 	</head>
-	<body class="bg-[#00205b] sm:p-1">
+	<body class="bg-[#d32f36] sm:p-1">
 
 		<div class=" fixed -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
@@ -52,11 +56,13 @@ const goalPace = Math.round((goals / gamesPlayed) * 81)
 				</div>
 			</div>
 			<h2 class="text-3xl lg:text-5xl  text-center text-white font-bold">
-				{ goals < 70 ? `${name} has ${goals} goals in ${gamesPlayed} games!` : `${name} has a total of`}
+				{ `${name} has ${careerGoals} goals in ${careerGamesPlayed} career games played!`}
 			</h2>
-			<h1 class="text-[15rem] text-white font-bold leading-[0.85] mt-8">{goals < 70 ? 70 - goals: goals}</h1>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">{ goals < 70 ? `Until 70! ` : `goals in ${gamesPlayed} games.`}</h2>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ goals < 70 ? `${fullSeason - gamesPlayed} games remaining. On pace for ${goalPace} goals.` : null}</h2>
+			<h1 class="text-[15rem] text-white font-bold leading-[0.85] mt-8">{careerGoals < goalRecord ? goalRecord - careerGoals : careerGoals}</h1>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">{ careerGoals < goalRecord ? `Until 895! ` : `goals in ${careerGamesPlayed} games.`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{`${goals} goals so far this season`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `With ${fullSeason - gamesPlayed} games remaining. On pace for ${goalPace} goals`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `A Career Total of ${goalPace + careerGoals}`}</h2>
 			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
 		</div>
 		
