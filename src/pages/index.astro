@@ -39,12 +39,11 @@ const {gamesPlayed} = data.featuredStats.regularSeason.subSeason
 const {heroImage} = data
 const {headshot} = data
 const fullSeason = 82
-const goalPace = Math.round((goals / gamesPlayed) * 82)
+const goalPace = Math.round((goals / gamesPlayed) * fullSeason)
 const goalsToGo = goalRecord - careerGoals
 const goalAverage = (goals / gamesPlayed)
 const gamesToGo = Math.round((goalsToGo / goalAverage))
 const theGame = futureGames[gamesToGo]
-
 const gameDate = new Date(theGame.gameDate)
 const formattedDate = gameDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -52,8 +51,7 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
   day: 'numeric',
   timeZone: 'UTC' // Ensures the date stays in UTC
 });
-
-
+const gameNumber = 0
 ---
 
 <html lang="en">
@@ -101,25 +99,33 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 					{careerGoals < goalRecord ? goalRecord - careerGoals : careerGoals}
 				</h1>
 				<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">
-					{ careerGoals < goalRecord ? `Until 895! ` : `goals in ${careerGamesPlayed} games.`}
+					{ careerGoals < goalRecord ? `Until 895! ` : `Career Goals!`}
 				</h2>
 			</div>
-			<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
-				{`He is projected to reach 895 goals by ${formattedDate} in a game against the ${
-				theGame.awayTeam.abbrev != 'WSH' ?    
-					`${theGame.awayTeam.placeName.default} ${theGame.awayTeam.commonName.default}`
-				: theGame.homeTeam.abbrev} at the ${theGame.venue.default}.`}
-			</h2>
-			<p class="text-l lg:text-xl  text-center text-white font-bold">
-				{ `${name} has ${careerGoals} goals in ${careerGamesPlayed} career games played!`}
-			</p>
-			
-			<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
-				{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining.`}
-			</p>
-			<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
-				{ `A Career Total of ${goalPace + careerGoals} goals.`}
-			</p>
+			{futureGames.length > 0 ? (
+					<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
+						{`He is projected to reach 895 goals by ${formattedDate} in a game against the ${
+						theGame.awayTeam.abbrev != 'WSH' ?    
+							`${theGame.awayTeam.placeName.default} ${theGame.awayTeam.commonName.default}`
+						: theGame.homeTeam.abbrev} at the ${theGame.venue.default}.`}
+					</h2>
+					<p class="text-l lg:text-xl  text-center text-white font-bold">
+						{ `${name} has ${careerGoals} goals in ${careerGamesPlayed} career games played!`}
+					</p>
+					
+					<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
+						{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining. A Career Total of ${goalPace + careerGoals} goals.`}
+					</p>
+				) : (
+					<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
+						{careerGoals < goalRecord ? (
+							`There are no remaining games in the schedule to project when ${name} will reach ${goalRecord} goals.`
+						): (
+							`${name} is now the NHL'S all time leading goal scorer with ${careerGoals} in ${careerGamesPlayed} games played.`
+						)}
+					</h2>
+				)
+			}
 			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">
 				Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a>
 			</div>
