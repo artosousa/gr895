@@ -60,9 +60,9 @@ const goalPace = Math.round((goals / gamesPlayed) * 82)
 			</h2>
 			<h1 class="text-[15rem] text-white font-bold leading-[0.85] mt-8">{careerGoals < goalRecord ? goalRecord - careerGoals : careerGoals}</h1>
 			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">{ careerGoals < goalRecord ? `Until 895! ` : `goals in ${careerGamesPlayed} games.`}</h2>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{`${goals} goals so far this season`}</h2>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `With ${fullSeason - gamesPlayed} games remaining. On pace for ${goalPace} goals`}</h2>
-			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `A Career Total of ${goalPace + careerGoals}`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{`${goals} goals this season`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `On pace for ${goalPace} goals with ${fullSeason - gamesPlayed} games remaining.`}</h2>
+			<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mt-4 ">{ `A Career Total of ${goalPace + careerGoals} goals.`}</h2>
 			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a></div>
 		</div>
 		
