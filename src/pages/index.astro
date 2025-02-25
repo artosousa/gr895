@@ -55,15 +55,21 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-R8BCRYTSFY"></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-	
-			gtag('config', 'G-R8BCRYTSFY');
+		<!-- Google Tag Manager -->
+		<script is:inline>
+			(function (w, d, s, l, i) {
+				console.log("GTM");
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-NSF5F27T" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-NSF5F27T");
 		</script>
+		<!-- End Google Tag Manager -->
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href={teamLogo} />
 		<link rel="stylesheet" href="https://use.typekit.net/yke1otl.css">
@@ -80,7 +86,15 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 		<title>GR895</title>
 	</head>
 	<body class="bg-[#d32f36] sm:p-1">
-
+		<noscript>
+			<iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-NSF5F27T"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"
+			>
+			</iframe>
+		</noscript>
 		<div class=" fixed -z-10 top-0 left-0 w-full h-screen mix-blend-luminosity opacity-5 flex items-center justify-center">
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
