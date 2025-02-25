@@ -68,6 +68,11 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 				j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-NSF5F27T" + i + dl;
 				f.parentNode.insertBefore(j, f);
 			})(window, document, "script", "dataLayer", "GTM-NSF5F27T");
+
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
 		</script>
 		<!-- End Google Tag Manager -->
 		<meta charset="utf-8" />
