@@ -86,46 +86,50 @@ const gameNumber = 0
 			<img title="AM34 Hero Shot" alt="Hero img" src={heroImage} class="object-cover h-[100%] w-[100%]" />
 		</div>
 		<div class="flex flex-col min-h-[95vh] items-center justify-center">
-			<div class="mb-8 relative">
-				<div class="rounded-full overflow-hidden bg-white border-solid border-2 border-white ">
-					<img class="w-32 h-32" title=`${name} headshot` alt="headshot" src={headshot} />
+			<div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-center mb-4 lg:mb-16">
+				<div class="relative flex flex-col h-fit">
+					<div class="rounded-full overflow-hidden bg-white border-solid border-2 border-white ">
+						<img class="w-[250px]" title=`${name} headshot` alt="headshot" src={headshot} />
+					</div>
+					<div class="rounded-full right-[40px] bottom-[-10px] absolute w-22 h-22 overflow-hidden bg-white border-solid border-2 border-[#00205b] ">
+						<img class="w-16 h-16  " title=`TML Logo` alt="logo" src={teamLogo} />
+					</div>
 				</div>
-				<div class="rounded-full right-0 bottom-0 overflow-hidden bg-white border-solid border-2 border-[#00205b] absolute">
-					<img class="w-9 h-9 " title=`TML Logo` alt="logo" src={teamLogo} />
+				<div>
+					<h1 class="text-[6rem] text-center lg:text-[15rem] text-white font-bold leading-[0.85] ">
+						{careerGoals < goalRecord ? goalRecord - careerGoals : careerGoals}
+					</h1>
+					<h2 class="text-3xl lg:text-5xl text-center text-white font-bold ">
+						{ careerGoals < goalRecord ? `Until 895! ` : `Career Goals!`}
+					</h2>
 				</div>
 			</div>
-			<div>
-				<h1 class="text-[15rem] text-white font-bold leading-[0.85] mt-8">
-					{careerGoals < goalRecord ? goalRecord - careerGoals : careerGoals}
-				</h1>
-				<h2 class="text-3xl lg:text-5xl text-center text-white font-bold mb-8">
-					{ careerGoals < goalRecord ? `Until 895! ` : `Career Goals!`}
-				</h2>
+			<div class="p-8">
+				{futureGames.length > 0 ? (
+						<h2 class=" w-full max-w-5xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
+							{`${name} is projected to reach 895 goals by ${formattedDate} in a game against the ${
+							theGame.awayTeam.abbrev != 'WSH' ?    
+								`${theGame.awayTeam.placeName.default} ${theGame.awayTeam.commonName.default}`
+							: theGame.homeTeam.abbrev} at the ${theGame.venue.default}.`}
+						</h2>
+						<p class="text-l lg:text-xl  text-center text-white font-bold">
+							{ `${name} has ${careerGoals} goals in ${careerGamesPlayed} career games played!`}
+						</p>
+						
+						<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
+							{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining. A Career Total of ${goalPace + careerGoals} goals.`}
+						</p>
+					) : (
+						<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
+							{careerGoals < goalRecord ? (
+								`There are no remaining games in the schedule to project when ${name} will reach ${goalRecord} goals.`
+							): (
+								`${name} is now the NHL'S all time leading goal scorer with ${careerGoals} in ${careerGamesPlayed} games played.`
+							)}
+						</h2>
+					)
+				}
 			</div>
-			{futureGames.length > 0 ? (
-					<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
-						{`He is projected to reach 895 goals by ${formattedDate} in a game against the ${
-						theGame.awayTeam.abbrev != 'WSH' ?    
-							`${theGame.awayTeam.placeName.default} ${theGame.awayTeam.commonName.default}`
-						: theGame.homeTeam.abbrev} at the ${theGame.venue.default}.`}
-					</h2>
-					<p class="text-l lg:text-xl  text-center text-white font-bold">
-						{ `${name} has ${careerGoals} goals in ${careerGamesPlayed} career games played!`}
-					</p>
-					
-					<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
-						{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining. A Career Total of ${goalPace + careerGoals} goals.`}
-					</p>
-				) : (
-					<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
-						{careerGoals < goalRecord ? (
-							`There are no remaining games in the schedule to project when ${name} will reach ${goalRecord} goals.`
-						): (
-							`${name} is now the NHL'S all time leading goal scorer with ${careerGoals} in ${careerGamesPlayed} games played.`
-						)}
-					</h2>
-				)
-			}
 			<div class="font-mono text-white mt-5 mb-1 bottom-0 ">
 				Created by <a class="text-white" href='https://arthursousa.com' title="Arthur Sousa" target="_blank">arthursousa.com</a>
 			</div>
