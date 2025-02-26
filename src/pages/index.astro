@@ -51,6 +51,8 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
   day: 'numeric',
   timeZone: 'UTC' // Ensures the date stays in UTC
 });
+
+
 ---
 
 <html lang="en">
@@ -136,7 +138,7 @@ const formattedDate = gameDate.toLocaleDateString('en-US', {
 						</p>
 						
 						<p class="text-l lg:text-xl text-center text-white font-bold mt-4 ">
-							{`${goals} goals this season and is on pace for ${goalPace} goals with ${futureGames.length} games remaining. A Career Total of ${goalPace + careerGoals} goals.`}
+							{`He has ${goals} goals this season and is on pace for ${goalPace} with ${futureGames.length} games remaining,possibly bringing his career Total goasl to ${(goalPace-goals) + careerGoals}.`}
 						</p>
 					) : (
 						<h2 class=" w-full max-w-4xl text-3xl lg:text-5xl/2rem text-center text-white font-bold mb-8">
